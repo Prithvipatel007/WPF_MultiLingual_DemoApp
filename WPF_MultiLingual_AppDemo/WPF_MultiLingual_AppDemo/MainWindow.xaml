@@ -1,0 +1,43 @@
+﻿<Window x:Class="WPF_MultiLingual_AppDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_MultiLingual_AppDemo"
+        mc:Ignorable="d"
+        Name="This"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label Content="{DynamicResource EnterNameText}"
+               FontSize="28" 
+               VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               />
+
+        <TextBox Grid.Column="1"
+                 FontSize="28"/>
+
+        <Button Grid.Column="1"
+                Grid.Row="1"
+                Content="{DynamicResource ClickText}"
+                FontSize="28"
+                />
+
+        <ComboBox Grid.Row="4 "
+                  FontSize="28"
+                  ItemsSource="{Binding ElementName=This, Path=Languages}"
+                  SelectedItem="{Binding ElementName=This, Path=AppLanguage, Mode=TwoWay}"/>
+    </Grid>
+</Window>
